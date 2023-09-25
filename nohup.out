@@ -1,0 +1,6 @@
+CompileCommand: exclude com/intellij/openapi/vfs/impl/FilePartNodeRoot.trieDescend bool exclude = true
+CompileCommand: exclude com/intellij/openapi/vfs/impl/FilePartNodeRoot.trieDescend bool exclude = true
+2023-09-25 16:08:17,781 [  12881]   WARN - #c.i.c.ComponentStoreImpl - Duplicated scheme Light - old: Light, new Light
+2023-09-25 16:08:21,400 [  16500]   WARN - #c.i.o.a.ActionStub - ActionGroup should be registered using <group> tag: id="WelcomeScreen.CreateDirectoryProject" class="com.jetbrains.php.actions.PhpStormNewProjectStep"
+2023-09-25 16:08:26,115 [  21215]   WARN - #c.i.d.PerformanceWatcherImpl - UI was frozen for 7159ms, details saved to /home/steinkel/.cache/JetBrains/PhpStorm2023.2/log/threadDumps-freeze-20230925-160823-PS-232.9559.64-HashMap.putVal-7sec
+2023-09-25 16:11:32,319 [ 207419]   WARN - #c.i.o.Disposable - use application as a parent disposable
