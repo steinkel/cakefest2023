@@ -24,6 +24,7 @@ use Cake\Http\BaseApplication;
 use Cake\Http\Middleware\BodyParserMiddleware;
 use Cake\Http\Middleware\CsrfProtectionMiddleware;
 use Cake\Http\MiddlewareQueue;
+use Cake\Http\Middleware\CspMiddleware;
 use Cake\ORM\Locator\TableLocator;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
@@ -91,7 +92,17 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
             ->add(new AssetMiddleware([
                 'cacheTime' => Configure::read('Asset.cacheTime'),
             ]))
-
+            ->add(new CspMiddleware([
+                'script-src' => [
+                    'allow' => [
+                        'https://www.google-analytics.com',
+                    ],
+                    'self' => true,
+                    'unsafe-inline' => true,
+                    'unsafe-eval' => true,
+                ],
+                "upgrade-insecure-requests" => false,
+            ]))
             // Add routing middleware.
             // If you have a large number of routes connected, turning on routes
             // caching in production could improve performance.

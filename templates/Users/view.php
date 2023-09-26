@@ -20,7 +20,7 @@
             <table>
                 <tr>
                     <th><?= __('First Name') ?></th>
-                    <td><?= h($user->first_name) ?></td>
+                    <td><?= $user->first_name ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Last Name') ?></th>
