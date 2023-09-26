@@ -11,6 +11,17 @@ use Cake\View\JsonView;
  */
 class UsersController extends AppController
 {
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->Authentication->allowUnauthenticated(['login']);
+    }
+
+    public function login()
+    {
+        dd('login happens here');
+    }
+
     public function viewClasses(): array
     {
         return [JsonView::class];
@@ -27,7 +38,7 @@ class UsersController extends AppController
         $users = $this->paginate($query);
 
         $this->set(compact('users'));
-	$this->viewBuilder()->setOption('serialize', ['users']);
+        $this->viewBuilder()->setOption('serialize', ['users']);
     }
 
     /**
