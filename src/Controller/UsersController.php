@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 use Cake\View\JsonView;
+use Cake\Routing\Router;
 
 /**
  * Users Controller
@@ -29,6 +30,13 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $this->Flash->error('Invalid username or password');
         }
+    }
+
+    public function logout()
+    {
+        $this->Authentication->logout();
+        
+        return $this->redirect(Router::pathUrl('Users::login'));
     }
 
     public function viewClasses(): array
