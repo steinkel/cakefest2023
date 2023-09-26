@@ -7,6 +7,7 @@ use Cake\ORM\Query\SelectQuery;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Database\Schema\TableSchemaInterface;
 
 /**
  * Groups Model
@@ -32,6 +33,12 @@ use Cake\Validation\Validator;
  */
 class GroupsTable extends Table
 {
+    public function getSchema(): TableSchemaInterface
+    {
+        return parent::getSchema()
+            ->setColumnType('name', 'encrypted');
+    }
+ 
     /**
      * Initialize method
      *
