@@ -25,6 +25,7 @@ use Cake\Http\Middleware\BodyParserMiddleware;
 use Cake\Http\Middleware\CsrfProtectionMiddleware;
 use Cake\Http\MiddlewareQueue;
 use Cake\Http\Middleware\CspMiddleware;
+use Cake\Http\Middleware\SecurityHeadersMiddleware;
 use Cake\ORM\Locator\TableLocator;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
@@ -83,11 +84,17 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
      */
     public function middleware(MiddlewareQueue $middlewareQueue): MiddlewareQueue
     {
+        $securityHeaders = (new SecurityHeadersMiddleware())
+            ->setReferrerPolicy()
+            ->setXFrameOptions()
+            ->noOpen()
+            ->noSniff();
+
         $middlewareQueue
             // Catch any exceptions in the lower layers,
             // and make an error page/response
             ->add(new ErrorHandlerMiddleware(Configure::read('Error'), $this))
-
+            ->add($securityHeaders)
             // Handle plugin/theme assets like CakePHP normally does.
             ->add(new AssetMiddleware([
                 'cacheTime' => Configure::read('Asset.cacheTime'),
