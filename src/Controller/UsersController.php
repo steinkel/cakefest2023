@@ -20,6 +20,7 @@ class UsersController extends AppController
 
     public function login()
     {
+        $this->Authorization->skipAuthorization();
         $result = $this->Authentication->getResult();
         if ($result->isValid()) {
             return $this->redirect(
@@ -68,6 +69,7 @@ class UsersController extends AppController
     public function view($id = null)
     {
         $user = $this->Users->get($id, contain: ['Groups']);
+        $this->Authorization->authorize($user);
         $this->set(compact('user'));
     }
 
