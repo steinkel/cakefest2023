@@ -33,7 +33,7 @@ class TaggedController extends AppController
      */
     public function view(?string $id = null)
     {
-        $tagged = $this->Tagged->get($id, contain: ['Tags']);
+        $tagged = $this->Tagged->get($id, ['contain' => ['Tags']]);
         $this->set(compact('tagged'));
     }
 
@@ -67,7 +67,7 @@ class TaggedController extends AppController
      */
     public function edit(?string $id = null)
     {
-        $tagged = $this->Tagged->get($id, contain: []);
+        $tagged = $this->Tagged->get($id, ['contain' => []]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $tagged = $this->Tagged->patchEntity($tagged, $this->request->getData());
             if ($this->Tagged->save($tagged)) {

@@ -12,11 +12,10 @@ use Cake\View\JsonView;
  */
 class UsersController extends AppController
 {
-
     /**
      * View classes method
      *
-     * @return array
+     * @return array<mixed>
      */
     public function viewClasses(): array
     {
@@ -46,7 +45,7 @@ class UsersController extends AppController
      */
     public function view(?string $id = null)
     {
-        $user = $this->Users->get($id, contain: ['Groups']);
+        $user = $this->Users->get($id, ['contain' => ['Groups']]);
         $this->set(compact('user'));
     }
 
@@ -80,7 +79,7 @@ class UsersController extends AppController
      */
     public function edit(?string $id = null)
     {
-        $user = $this->Users->get($id, contain: ['Groups']);
+        $user = $this->Users->get($id, ['contain' => ['Groups']]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {

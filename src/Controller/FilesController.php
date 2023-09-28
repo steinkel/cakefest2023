@@ -33,7 +33,7 @@ class FilesController extends AppController
      */
     public function view(?string $id = null)
     {
-        $file = $this->Files->get($id, contain: ['Groups']);
+        $file = $this->Files->get($id, ['contain' => ['Groups']]);
         $this->set(compact('file'));
     }
 
@@ -67,7 +67,7 @@ class FilesController extends AppController
      */
     public function edit(?string $id = null)
     {
-        $file = $this->Files->get($id, contain: []);
+        $file = $this->Files->get($id, ['contain' => []]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $file = $this->Files->patchEntity($file, $this->request->getData());
             if ($this->Files->save($file)) {

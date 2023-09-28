@@ -33,7 +33,7 @@ class GroupsUsersController extends AppController
      */
     public function view(?string $id = null)
     {
-        $groupsUser = $this->GroupsUsers->get($id, contain: ['Groups', 'Users']);
+        $groupsUser = $this->GroupsUsers->get($id, ['contain' => ['Groups', 'Users']]);
         $this->set(compact('groupsUser'));
     }
 
@@ -68,7 +68,7 @@ class GroupsUsersController extends AppController
      */
     public function edit(?string $id = null)
     {
-        $groupsUser = $this->GroupsUsers->get($id, contain: []);
+        $groupsUser = $this->GroupsUsers->get($id, ['contain' => []]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $groupsUser = $this->GroupsUsers->patchEntity($groupsUser, $this->request->getData());
             if ($this->GroupsUsers->save($groupsUser)) {
