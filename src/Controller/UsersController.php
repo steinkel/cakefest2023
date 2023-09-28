@@ -12,6 +12,12 @@ use Cake\View\JsonView;
  */
 class UsersController extends AppController
 {
+
+    /**
+     * View classes method
+     *
+     * @return array
+     */
     public function viewClasses(): array
     {
         return [JsonView::class];
