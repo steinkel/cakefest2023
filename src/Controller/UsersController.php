@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 namespace App\Controller;
+
 use Cake\View\JsonView;
 
 /**
@@ -27,7 +28,7 @@ class UsersController extends AppController
         $users = $this->paginate($query);
 
         $this->set(compact('users'));
-	$this->viewBuilder()->setOption('serialize', ['users']);
+        $this->viewBuilder()->setOption('serialize', ['users']);
     }
 
     /**
@@ -37,7 +38,7 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view(?string $id = null)
     {
         $user = $this->Users->get($id, contain: ['Groups']);
         $this->set(compact('user'));
@@ -71,7 +72,7 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function edit($id = null)
+    public function edit(?string $id = null)
     {
         $user = $this->Users->get($id, contain: ['Groups']);
         if ($this->request->is(['patch', 'post', 'put'])) {
@@ -94,7 +95,7 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
+    public function delete(?string $id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
