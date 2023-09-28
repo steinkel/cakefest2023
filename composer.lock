@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5bb268fe4e14bf75a9b9e23103b51e46",
+    "content-hash": "01291e49278b177c2d5a31b99491dd3c",
     "packages": [
         {
             "name": "cakephp/authentication",
@@ -724,6 +724,73 @@
                 "source": "https://github.com/serbanghita/Mobile-Detect/tree/3.74.0"
             },
             "time": "2022-12-04T15:37:32+00:00"
+        },
+        {
+            "name": "muffin/throttle",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UseMuffin/Throttle.git",
+                "reference": "711593120bf305251d3400c83c124210fe2562da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UseMuffin/Throttle/zipball/711593120bf305251d3400c83c124210fe2562da",
+                "reference": "711593120bf305251d3400c83c124210fe2562da",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "^5.0.0"
+            },
+            "require-dev": {
+                "cakephp/cakephp-codesniffer": "^5.0",
+                "phpunit/phpunit": "^10.1.0"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Muffin\\Throttle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jad Bitar",
+                    "homepage": "http://jadb.io",
+                    "role": "Author"
+                },
+                {
+                    "name": "ADmad",
+                    "homepage": "https://github.com/ADmad",
+                    "role": "Author"
+                },
+                {
+                    "name": "Bravo Kernel",
+                    "homepage": "https://github.com/bravo-kernel",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Others",
+                    "homepage": "https://github.com/usemuffin/throttle/graphs/contributors"
+                }
+            ],
+            "description": "(API) Rate limiting requests in CakePHP",
+            "homepage": "https://github.com/usemuffin/throttle",
+            "keywords": [
+                "Rate",
+                "cakephp",
+                "limit",
+                "muffin",
+                "throttle"
+            ],
+            "support": {
+                "issues": "https://github.com/usemuffin/throttle/issues",
+                "source": "https://github.com/usemuffin/throttle"
+            },
+            "time": "2023-09-23T08:43:49+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",

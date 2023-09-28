@@ -93,6 +93,24 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
             ->noSniff();
 
         $middlewareQueue
+            ->add(new \Muffin\Throttle\Middleware\ThrottleMiddleware([
+                // Data used to generate response with HTTP code 429 when limit is exceeded.
+                'response' => [
+                    'body' => 'Rate limit exceeded',
+                ],
+                // Time period as number of seconds
+                'period' => 60,
+                // Number of requests allowed within the above time period
+                'limit' => 10,
+                // Client identifier
+                'identifier' => function ($request) {
+                    if (!empty($request->getHeaderLine('Authorization'))) {
+                        return str_replace('Bearer ', '', $request->getHeaderLine('Authorization'));
+                    }
+
+                    return $request->clientIp();
+                }
+            ]))
             // Catch any exceptions in the lower layers,
             // and make an error page/response
             ->add(new ErrorHandlerMiddleware(Configure::read('Error'), $this))

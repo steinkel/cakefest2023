@@ -130,6 +130,10 @@ return [
             'duration' => '+1 years',
             'url' => env('CACHE_CAKEMODEL_URL', null),
         ],
+        'throttle' => [
+            'className' => 'Apcu',
+            'prefix' => 'throttle_'
+        ],
     ],
 
     /*
