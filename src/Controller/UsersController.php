@@ -53,7 +53,8 @@ class UsersController extends AppController
     public function index()
     {
         $query = $this->Users->find();
-        $users = $this->paginate($query);
+        $this->Authorization->authorize($query);
+        $users = $this->paginate($this->Authorization->applyScope($query));
 
         $this->set(compact('users'));
         $this->viewBuilder()->setOption('serialize', ['users']);
