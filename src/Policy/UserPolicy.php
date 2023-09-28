@@ -20,6 +20,7 @@ class UserPolicy
      */
     public function canAdd(IdentityInterface $user, User $resource)
     {
+        return true;
     }
 
     /**
@@ -31,6 +32,7 @@ class UserPolicy
      */
     public function canEdit(IdentityInterface $user, User $resource)
     {
+        return true;
     }
 
     /**
@@ -42,6 +44,7 @@ class UserPolicy
      */
     public function canDelete(IdentityInterface $user, User $resource)
     {
+        return true;
     }
 
     /**
