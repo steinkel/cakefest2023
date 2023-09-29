@@ -103,8 +103,13 @@ class UsersTable extends Table
         return $rules;
     }
 
+    /**
+     * @param \Cake\Datasource\EntityInterface $event
+     * @param \Cake\Event\EventInterface $entity
+     * @param \ArrayObject $options
+     * @return void
+     */
     public function afterSave(EventInterface $event, EntityInterface $entity, ArrayObject $options): void
     {
     }
-
 }
