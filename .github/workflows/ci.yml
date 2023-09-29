@@ -16,10 +16,11 @@ permissions:
 
 jobs:
   testsuite:
-    runs-on: ubuntu-22.04
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
+        os: [ubuntu-latest, windows-latest]
         php-version: ['8.1', '8.2']
         dependencies: ['highest']
         include:
