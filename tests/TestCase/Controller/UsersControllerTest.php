@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\UsersController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
@@ -57,7 +56,18 @@ class UsersControllerTest extends TestCase
      */
     public function testAdd(): void
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/users/add');
+        $this->assertResponseOk();
+
+        $this->enableCsrfToken();
+        $this->post('/users/add', [
+            'first_name' => 'Rafael',
+            'last_name' => 'Queiroz',
+            'email' => 'rafael.queiroz@cakedc.com',
+            'password' => 'dshaiuo132hyohw',
+            'active' => 1,
+        ]);
+        $this->assertRedirectContains('/users', 'The user has been saved.');
     }
 
     /**

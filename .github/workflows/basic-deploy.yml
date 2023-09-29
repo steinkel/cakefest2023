@@ -1,0 +1,17 @@
+name: Basic Deploy
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3    
+  deploy-develop:
+    name: Deploy Develop
+    runs-on: ubuntu-latest
+    environment:
+      name: develop
+    needs: build
+    steps:
+      - name: Setup
+        run: echo "🎉 Deployed by ${{ github.actor }}"
