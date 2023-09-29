@@ -1,0 +1,20 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+  deploy-develop:
+    name: Deploy Develop
+    runs-on: ubuntu-latest
+
+    environment:
+      name: dev
+        
+
+    needs: build
+    steps:
+      - name: Test
+        run: echo "Deployed"
