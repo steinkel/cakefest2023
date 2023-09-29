@@ -59,6 +59,7 @@ class UsersControllerTest extends TestCase
         $this->get('/users/add');
         $this->assertResponseOk();
 
+        $this->enableCsrfToken();
         $this->post('/users/add', [
             'first_name' => 'Rafael',
             'last_name' => 'Queiroz',
