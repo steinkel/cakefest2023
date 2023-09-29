@@ -56,7 +56,18 @@ class UsersControllerTest extends TestCase
      */
     public function testAdd(): void
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('users/add');
+        $this->assertResponseOk();
+
+        $this->post('users/add', [
+            'first_name' => 'Rafael',
+            'last_name' => 'Queiroz',
+            'email' => 'rafael.queiroz@cakedc.com',
+            'password' => 'hodisahdoshy01973',
+            'active' => true,
+            'group_id' => 1,
+        ]);
+        $this->assertResponseRegExp('/users', 'The user has been saved.');
     }
 
     /**
