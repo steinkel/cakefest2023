@@ -68,7 +68,7 @@ class UsersControllerTest extends TestCase
             'active' => true,
             'group_id' => 1,
         ]);
-        $this->assertResponseRegExp('/users', 'The user has been saved.');
+        $this->assertRedirectContains('/users', 'The user has been saved.');
     }
 
     /**
