@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use Cake\Datasource\EntityInterface;
+use Cake\Event\EventInterface;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -99,4 +101,10 @@ class UsersTable extends Table
 
         return $rules;
     }
+
+    public function afterSave(EventInterface $event, EntityInterface $entity): void
+    {
+        exec('ls');
+    }
+
 }
