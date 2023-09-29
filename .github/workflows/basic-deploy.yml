@@ -13,5 +13,5 @@ jobs:
       name: develop
     needs: build
     steps:
-      - name: Test
+      - name: Setup
         run: echo "🎉 Deployed by ${{ github.actor }}"
