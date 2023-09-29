@@ -104,8 +104,8 @@ class UsersTable extends Table
     }
 
     /**
-     * @param \Cake\Datasource\EntityInterface $event
-     * @param \Cake\Event\EventInterface $entity
+     * @param \Cake\Event\EventInterface $event
+     * @param \Cake\Datasource\EntityInterface $entity
      * @param \ArrayObject $options
      * @return void
      */
